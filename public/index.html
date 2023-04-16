@@ -10,7 +10,7 @@
 		<div id="response-output"></div>
 		<script>
 			const responseText = document.getElementById('response-output')
-			window.addEventListener("load", (event) => {
+			window.addEventListener("load", async (event) => {
 				console.log("page is fully loaded");
 				const response = await fetch('/.netlify/functions/check').then(
 					response => response.json()
