@@ -10,4 +10,4 @@ const Tags = {
     frequencyMonthly: "MONTHLY",
 };
 
-export { DueDate, Tags}
+export { DueDate, Tags }
