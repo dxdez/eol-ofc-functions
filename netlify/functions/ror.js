@@ -1,4 +1,4 @@
-import RateOfReturn from '../../src/api/rate-of-return.js'
+import RateOfReturn from '../../src/api/rate-of-return.js';
 
 exports.handler = async (event, context) => {
 	const { mode, li, av, pv, dy, dm, fr } = event.queryStringParameters;

@@ -1,3 +1,5 @@
+import { Tags } from '../config/globals.js';
+
 export default {
     getReturnValue: function (checkValue) {
         if (isNaN(checkValue) || isNull(checkValue) || !isFinite(checkValue)) {
