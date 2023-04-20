@@ -8,11 +8,11 @@ export default {
 		// Set the initial guess rate to use in the calculation
 		var rate1 = guess;
 		// Use the initial guess rate to calculate the payment
-		var payment1 = calculateInternalRateOfReturn(rate1, numberOfPeriods, payment, presentValue, futureValue, dueDate);
+		var payment1 = this.calculateInternalRateOfReturn(rate1, numberOfPeriods, payment, presentValue, futureValue, dueDate);
 		// Choose a second rate to use in the calculation
 		var rate2 = payment1 <= 0.0 ? rate1 * 2.0 : rate1 / 2.0;
 		// Use the second rate to calculate the payment
-		var payment2 = calculateInternalRateOfReturn(rate2, numberOfPeriods, payment, presentValue, futureValue, dueDate);
+		var payment2 = this.calculateInternalRateOfReturn(rate2, numberOfPeriods, payment, presentValue, futureValue, dueDate);
 		// Use a loop to refine the rate of return estimate
 		var numIterations = 0;
 		do {
@@ -23,7 +23,7 @@ export default {
 				} else {
 					rate1 += 1E-05;
 				}
-				payment1 = calculateInternalRateOfReturn(rate1, numberOfPeriods, payment, presentValue, futureValue, dueDate);
+				payment1 = this.calculateInternalRateOfReturn(rate1, numberOfPeriods, payment, presentValue, futureValue, dueDate);
 				// If the adjusted payment is still equal to the second payment, return NaN
 				if (payment2 == payment1) {
 					return NaN;
@@ -31,7 +31,7 @@ export default {
 			}
 			// Calculate a new rate estimate based on the two payments and their corresponding rates
 			var rate3 = rate2 - ((rate2 - rate1) * payment2 / (payment2 - payment1));
-			var payment3 = calculateInternalRateOfReturn(rate3, numberOfPeriods, payment, presentValue, futureValue, dueDate);
+			var payment3 = this.calculateInternalRateOfReturn(rate3, numberOfPeriods, payment, presentValue, futureValue, dueDate);
 			// If the payment is within a certain threshold, return the rate of return estimate
 			if (Math.abs(payment3) < 1E-07) {
 				return rate3;
