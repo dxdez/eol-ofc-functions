@@ -28,7 +28,7 @@ export default {
         }
     },
     getReturnValue: function (checkValue) {
-        if (isNaN(checkValue) || isNull(checkValue) || !isFinite(checkValue)) { // Is Nan, Null or Infinity
+        if (isNaN(checkValue) || checkValue == null || !isFinite(checkValue)) { // Is Nan, Null or Infinity
             return "-";
         } else {
             return checkValue.toFixed(2); // Convert value to display as 00.00 decimal
