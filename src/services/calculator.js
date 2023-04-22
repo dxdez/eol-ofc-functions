@@ -61,5 +61,21 @@ export default {
 			result = presentValue * factor + payment * adjustment * (factor - 1.0) / rate + futureValue;
 		}
 		return result;
-	}
+	},
+	calculatePayment: function(rate, nPer, presentValue, futureValue = 0.0, dueDate) {
+		if (nPer <= 0.0) {
+			return NaN;
+		}
+
+		var payment;
+		if (rate == 0.0) {
+			payment = (-futureValue - presentValue) / nPer;
+		} else {
+			var dueFactor = (dueDate == DueDate.EndOfPeriod) ? 1.0 : 1.0 + rate;
+			var ratePlusOneToThePowerOfNper = Math.pow(rate + 1.0, nPer);
+			payment = (-futureValue - presentValue * ratePlusOneToThePowerOfNper) /
+				(dueFactor * (ratePlusOneToThePowerOfNper - 1.0)) * rate;
+		}
+		return payment;
+	}	
 }
