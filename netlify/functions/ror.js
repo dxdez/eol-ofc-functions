@@ -5,7 +5,19 @@ exports.handler = async (event, context) => {
 	let result;
 	switch(mode) {
 		case 'annual-compound-return':
-			result = RateOfReturn.getRateOfReturnAnnualCompoundReturn(av, pv, dy, dm, fr) 
+			result = RateOfReturn.getRateOfReturnAnnualCompoundReturn(av, pv, dy, dm, fr); 
+			break;
+		case 'total-percentage-gain':
+			result = RateOfReturn.getRateOfReturnTotalPercentageGain(av, pv, dy, dm, fr);
+			break;
+		case 'lumpsum-annual-compound-return':
+			result = RateOfReturn.getRateOfReturnLumpSumAnnualCompoundReturn(li, pv, dy, dm);
+			break;
+		case 'lumpsum-total-percentage-gain':
+			result = RateOfReturn.getRateOfReturnLumpSumTotalPercentageGain(li, pv);
+			break;
+		case 'lumpsum-average-annual-gain':
+			result = RateOfReturn.getRateOfReturnLumpSumAverageAnnualGain(li, pv, dy, dm);
 			break;
 		default:
 			result = 'Not Found'
