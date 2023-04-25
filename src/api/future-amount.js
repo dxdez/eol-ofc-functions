@@ -4,9 +4,9 @@ import { DueDate } from '../config/globals.js';
 
 export default {
 	getFutureAmountPeriodicInvestment: function (returnAmount, amountRequired, durationYears, durationMonths, frequency) {
-		let _futureAmountRequired = Helper.getNum(amountRequired);
-		let _durYears = Helper.getNum(durationYears);
-		let _durMonths = Helper.getNum(durationMonths);
+		let _futureAmountRequired = Helper.getNumber(amountRequired);
+		let _durYears = Helper.getNumber(durationYears);
+		let _durMonths = Helper.getNumber(durationMonths);
 		let _frequencySelection = frequency;
 		let _frequency = 0;
 		let _duration = 0;
