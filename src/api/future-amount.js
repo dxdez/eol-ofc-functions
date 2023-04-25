@@ -1,6 +1,6 @@
 import Calculations from '../services/calculator.js';
 import Helper from '../services/helper.js';
-import { DueDate } from '../config/globals.js';
+import { Tags, DueDate } from '../config/globals.js';
 
 export default {
 	getFutureAmountPeriodicInvestment: function (returnAmount, amountRequired, durationYears, durationMonths, frequency) {
