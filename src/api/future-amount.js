@@ -73,4 +73,37 @@ export default {
 		let finalValue = Calculations.calculatePayment(Math.pow((1.0 + (returnAmount / 100.0)), (1.0 / _frequency)) - 1, _duration, _amountToday, -_futureAmountRequired, DueDate.BegOfPeriod);
 		return Helper.getReturnValue(finalValue);
 	},
+	getFutureAmountLeveragedRequiredLumpSumLeveraged: function(requiredAmount, durationYears, annualCompoundReturn) {
+		let _amountRequired = Helper.getNumber(requiredAmount);
+		let _durYears = Helper.getNumber(durationYears);
+		let _annualCompoundReturn = Helper.getNumber(annualCompoundReturn);
+		let finalValue = NaN;
+		if (_durYears > 0 && _annualCompoundReturn > 0) {
+			finalValue = _amountRequired / (Math.pow(1 + (_annualCompoundReturn / 100.00), _durYears) - 1);
+		}
+		return Helper.getReturnValue(finalValue);
+	},
+	getFutureAmountLeveragedValueAmount: function(requiredAmount, durationYears, annualCompoundReturn) {
+		let _amountRequired = Helper.getNumber(requiredAmount);
+		let _durYears = Helper.getNumber(durationYears);
+		let _annualCompoundReturn = Helper.getNumber(annualCompoundReturn);
+		let finalValue = NaN;
+		if (_durYears > 0 && _annualCompoundReturn > 0) {
+			let requiredLumpSumValue = _amountRequired / (Math.pow(1 + (_annualCompoundReturn / 100.00), _durYears) - 1);
+			finalValue = requiredLumpSumValue * (Math.pow((1 + (_annualCompoundReturn / 100.00)), _durYears));
+		}
+		return Helper.getReturnValue(finalValue);
+	},
+	getFutureAmountLeveragedValueBalanceAfterLoan: function(requiredAmount, durationYears, annualCompoundReturn) {
+		let _amountRequired = Helper.getNumber(requiredAmount);
+		let _durYears = Helper.getNumber(durationYears);
+		let _annualCompoundReturn = Helper.getNumber(annualCompoundReturn);
+		let finalValue = NaN;
+		if (_durYears > 0 && _annualCompoundReturn > 0) {
+			let requiredLumpSumValue = _amountRequired / (Math.pow(1 + (_annualCompoundReturn / 100.00), _durYears) - 1);
+			let leveragedAmountValue = requiredLumpSumValue * (Math.pow((1 + (_annualCompoundReturn / 100.00)), _durYears));
+			finalValue = leveragedAmountValue - requiredLumpSumValue;
+		}
+		return Helper.getReturnValue(finalValue);
+	}
 }
