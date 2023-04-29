@@ -1,7 +1,7 @@
 import FutureAmount from '../../src/api/future-amount.js';
 
 exports.handler = async (event, context) => {
-	const { mode, ra, ar, dy, dm, fr, at } = event.queryStringParameters;
+	const { mode, ra, ar, dy, dm, fr, at, acr } = event.queryStringParameters;
 	let result;
 	switch(mode) {
 		case 'periodic-investment':
@@ -12,6 +12,9 @@ exports.handler = async (event, context) => {
 			break;
 		case 'periodic-lumpsum-investment':
 			result = FutureAmount.getFutureAmountPeriodicLumpSumInvestment(ra, ar, at, dy, dm, fr);
+			break;
+		case 'leveraged-required-lump-sum':
+			result = FutureAmount.getFutureAmountLeveragedRequiredLumpSumLeveraged(ra, dy, acr);
 			break;
 		default:
 			result = 'Not Found'
