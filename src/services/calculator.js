@@ -77,5 +77,27 @@ export default {
 				(dueFactor * (ratePlusOneToThePowerOfNper - 1.0)) * rate;
 		}
 		return payment;
-	}	
+	},
+	calculateFutureValue: function(interestRate, numberOfPeriods, payment, presentValue = 0.0, dueDate) {
+		var futureValue;
+		if (interestRate == 0.0) {
+			futureValue = -presentValue - payment * numberOfPeriods;
+		} else {
+			var factor = (dueDate == DueDate.EndOfPeriod) ? 1.0 : 1.0 + interestRate;
+			var compoundFactor = Math.pow(1.0 + interestRate, numberOfPeriods);
+			futureValue = -presentValue * compoundFactor - payment / interestRate * factor * (compoundFactor - 1.0);
+		}
+		return futureValue;
+	},
+	calculatePresentValue: function(interestRate, numberOfPeriods, payment, futureValue = 0.0, dueDate) {
+		var presentValue;
+		if (interestRate == 0.0) {
+			presentValue = -futureValue - payment * numberOfPeriods;
+		} else {
+			var factor = (dueDate == DueDate.EndOfPeriod) ? 1.0 : 1.0 + interestRate;
+			var compoundFactor = Math.pow(1.0 + interestRate, numberOfPeriods);
+			presentValue = -(futureValue + payment * factor * ((compoundFactor - 1.0) / interestRate)) / compoundFactor;
+		}
+		return presentValue;
+	}
 }
