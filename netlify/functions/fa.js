@@ -16,8 +16,14 @@ exports.handler = async (event, context) => {
 		case 'leveraged-required-lump-sum':
 			result = FutureAmount.getFutureAmountLeveragedRequiredLumpSumLeveraged(ra, dy, acr);
 			break;
+		case 'leveraged-value-amount':
+			result = FutureAmount.getFutureAmountLeveragedValueAmount(ra, dy, acr);
+			break;
+		case 'leveraged-value-balance-after-loan':
+			result = FutureAmount.getFutureAmountLeveragedValueBalanceAfterLoan(ra, dy, acr);
+			break;
 		default:
-			result = 'Not Found'
+			result = 'Not Found';
 	}
 	return {
 		statusCode: 200,
