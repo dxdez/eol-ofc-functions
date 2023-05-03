@@ -6,7 +6,7 @@ exports.handler = async (event, context) => {
 	switch(mode) {
 		case 'periodic-annual-compound-return':
 			result = FutureValue.getFutureValuePeriodic_annualCompoundReturn(ia, if, y, p);
-			breal
+			break;
 		case 'lumpsum-annual-compound-return':
 			result = FutureValue.getFutureValueLumpSum_annualCompoundReturn(li, y, p);
 			break;
