@@ -10,5 +10,12 @@ export default {
 		let calculatedRate = _annualInflationRate / 100;
 		let finalValue = _capitalRequired * Math.pow(1 + calculatedRate, _numberOfYears);
 		return Helper.getReturnValue(finalValue);
+	},
+	majorPurchase_getLumpSumToday: function (annualCompoundReturn, numberYears, calculatedReturnCapital) {
+		let _numberOfYears = Helper.getNumber(numberYears);
+		let _annualCompoundReturn = Helper.getNumber(annualCompoundReturn);
+		let calculatedCompound = _annualCompoundReturn / 100;
+		let finalValue = calculatedReturnCapital / Math.pow(1 + calculatedCompound, _numberOfYears);
+		return Helper.getReturnValue(finalValue);
 	}
 }
