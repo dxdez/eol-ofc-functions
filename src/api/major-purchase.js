@@ -3,7 +3,7 @@ import Helper from '../services/helper.js';
 import { Tags, DueDate } from '../config/globals.js';
 
 export default {
-	majorPurchase_getCapitalRequired: function (capitalRequired, numberYears, annualInflation) {
+	getCapitalRequired: function (capitalRequired, numberYears, annualInflation) {
 		let _capitalRequired = Helper.getNumber(capitalRequired);
 		let _numberOfYears = Helper.getNumber(numberYears);
 		let _annualInflationRate = Helper.getNumber(annualInflation);
@@ -11,18 +11,18 @@ export default {
 		let finalValue = _capitalRequired * Math.pow(1 + calculatedRate, _numberOfYears);
 		return Helper.getReturnValue(finalValue);
 	},
-	majorPurchase_getLumpSumToday: function (annualCompoundReturn, numberYears, calculatedReturnCapital) {
+	getLumpSumToday: function (annualCompoundReturn, numberYears, calculatedReturnCapital) {
 		let _numberOfYears = Helper.getNumber(numberYears);
 		let _annualCompoundReturn = Helper.getNumber(annualCompoundReturn);
 		let calculatedCompound = _annualCompoundReturn / 100;
 		let finalValue = calculatedReturnCapital / Math.pow(1 + calculatedCompound, _numberOfYears);
 		return Helper.getReturnValue(finalValue);
 	},
-	majorPurchase_getLumpSumRequired: function (lumpSum, existingCapital) {
+	getLumpSumRequired: function (lumpSum, existingCapital) {
 		let finalValue = lumpSum - existingCapital;
 		return Helper.getReturnValue(finalValue);
 	},
-	majorPurchase_getMonthlyInvestments: function (annualCompoundReturn, numberYears, capitalAccumulated, calculatedReturnCapital) {
+	getMonthlyInvestments: function (annualCompoundReturn, numberYears, capitalAccumulated, calculatedReturnCapital) {
 		let _capitalAccumulated = Helper.getNumber(capitalAccumulated);
 		let _annualCompoundReturn = Helper.getNumber(annualCompoundReturn);
 		let _numberOfYears = Helper.getNumber(numberYears);

@@ -5,7 +5,7 @@ exports.handler = async (event, context) => {
 	let result;
 	switch(mode) {
 		case 'get-amount-per-withdrawl':
-			result = CapitalDepletion.capitalDepletion_getAmountPerWithdrawl(pv, y, w, f, rp);
+			result = CapitalDepletion.getAmountPerWithdrawl(pv, y, w, f, rp);
 			break;
 		case 'get-total-payout':
 			result = CapitalDepletion.getTotalPayout(apw, y, w);
