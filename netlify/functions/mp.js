@@ -13,6 +13,9 @@ exports.handler = async (event, context) => {
 		case 'get-lumpsum-required':
 			result = MajorPurchase.getLumpSumRequired(ls, ec); 
 			break;
+		case 'get-monthly-investment':
+			result = MajorPurchase.getMonthlyInvestments(acr, ny, ca, crc);
+			break;
 		default:
 			result = 'Not Found';
 	}
