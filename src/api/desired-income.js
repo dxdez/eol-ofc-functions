@@ -3,7 +3,7 @@ import Helper from '../services/helper.js';
 import { Tags, DueDate } from '../config/globals.js';
 
 export default {
-	desiredIncome_totalIncomeRequired: function(periodicIncomeDesired, annualInflationRate, withdrawlFrequency, durationYears, capitalReturnCompounding, compoundingFrequency) {
+	totalIncomeRequired: function(periodicIncomeDesired, annualInflationRate, withdrawlFrequency, durationYears, capitalReturnCompounding, compoundingFrequency) {
 		let _parameterIncomeDesired = Helper.getNumber(periodicIncomeDesired);
 		let _parameterAnnualInflationRate = Helper.getNumber(annualInflationRate);
 		let _parameterCapitalReturnCompounding = Helper.getNumber(capitalReturnCompounding);
@@ -38,7 +38,7 @@ export default {
 		}
 		return Helper.getReturnValue(finalValue);
 	},
-	desiredIncome_getWithdrawlData: function(periodicIncomeDesired, annualInflationRate, withdrawlFrequency, durationYears, capitalReturnCompounding, compoundingFrequency) {
+	getWithdrawlData: function(periodicIncomeDesired, annualInflationRate, withdrawlFrequency, durationYears, capitalReturnCompounding, compoundingFrequency) {
 		let _parameterIncomeDesired = Helper.getNumber(periodicIncomeDesired);
 		let _parameterAnnualInflationRate = Helper.getNumber(annualInflationRate);
 		let _parameterCapitalReturnCompounding = Helper.getNumber(capitalReturnCompounding);
@@ -66,7 +66,7 @@ export default {
 				let capitalRemaining = 0;
 				if (j < _parameterDurationYears) {
 					nextWithdrawl = currentIncomeDesiredValues[j];
-					capitalRemaining = Calculations.presentValue(presentValueRate, _parameterWithdrawlFrequency, -nextWithdrawl, -currentCapitalRemaining, DueDate.EndOfPeriod);
+					capitalRemaining = Calculations.calculatePresentValue(presentValueRate, _parameterWithdrawlFrequency, -nextWithdrawl, -currentCapitalRemaining, DueDate.EndOfPeriod);
 				}
 				capitalRemainingValues.push(capitalRemaining);
 				currentCapitalRemaining = capitalRemaining;
