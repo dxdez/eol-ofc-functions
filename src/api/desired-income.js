@@ -45,6 +45,7 @@ export default {
 		let _parameterDurationYears = Helper.getNumber(durationYears, true);
 		let _parameterWithdrawlFrequency = Helper.getValueFromFrequencyAlt(withdrawlFrequency);
 		let _parameterCompoundingFrequency = Helper.getValueFromFrequencyAlt(compoundingFrequency);
+		let withdrawlData = { wd: [] };
 		if (_parameterWithdrawlFrequency > 0 && _parameterDurationYears > 0) {
 			let calculatedIndex = _parameterAnnualInflationRate / 100;
 			let compoundIndex = _parameterCapitalReturnCompounding / 100;
@@ -81,8 +82,8 @@ export default {
 					remainingValue: capitalRemainingValues[k]
 				});
 			}
-			return mainData;
+			withdrawlData.wd = mainData;
 		}
-		return [];
+		return JSON.stringify(withdrawlData);
 	}
 }
