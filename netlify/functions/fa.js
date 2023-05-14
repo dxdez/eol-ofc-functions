@@ -13,7 +13,7 @@ exports.handler = async (event, context) => {
 		case 'periodic-lumpsum-investment':
 			result = FutureAmount.getFutureAmountPeriodicLumpSumInvestment(ra, ar, at, dy, dm, fr);
 			break;
-		case 'leveraged-required-lump-sum':
+		case 'leveraged-required-lumpsum':
 			result = FutureAmount.getFutureAmountLeveragedRequiredLumpSumLeveraged(ra, dy, acr);
 			break;
 		case 'leveraged-value-amount':
