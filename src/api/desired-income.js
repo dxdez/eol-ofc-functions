@@ -30,11 +30,11 @@ export default {
 				let capitalRemaining = 0;
 				if (j < _parameterDurationYears) {
 					nextWithdrawl = currentIncomeDesiredValues[j];
-					capitalRemaining = Calculations.presentValue(presentValueRate, _parameterWithdrawlFrequency, -nextWithdrawl, -currentCapitalRemaining, DueDate.EndOfPeriod);
+					capitalRemaining = Calculations.calculatePresentValue(presentValueRate, _parameterWithdrawlFrequency, -nextWithdrawl, -currentCapitalRemaining, DueDate.EndOfPeriod);
 				}
 				currentCapitalRemaining = capitalRemaining;
 			}
-			finalValue = Calculations.presentValue(presentValueRate, _parameterWithdrawlFrequency, -_parameterIncomeDesired, -currentCapitalRemaining, DueDate.EndOfPeriod);        
+			finalValue = Calculations.calculatePresentValue(presentValueRate, _parameterWithdrawlFrequency, -_parameterIncomeDesired, -currentCapitalRemaining, DueDate.EndOfPeriod);        
 		}
 		return Helper.getReturnValue(finalValue);
 	},
