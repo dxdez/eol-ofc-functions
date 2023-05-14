@@ -1,7 +1,7 @@
 import MajorPurchase from '../../src/api/major-purchase.js';
 
 exports.handler = async (event, context) => {
-	const { mode, cr, ny, ai, acr, crc, ls, ec } = event.queryStringParameters;
+	const { mode, cr, ny, ai, acr, crc, ls, ec, ca } = event.queryStringParameters;
 	let result;
 	switch(mode) {
 		case 'get-capital-required':
