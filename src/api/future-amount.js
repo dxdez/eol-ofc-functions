@@ -3,6 +3,7 @@ import Helper from '../services/helper.js';
 import { Tags, DueDate } from '../config/globals.js';
 
 export default {
+	// Calculates the future value of a periodic investment. The function takes the return rate, the required amount, the duration in years and months, and the frequency of investment as inputs. It returns the future value of the investment.
 	getFutureAmountPeriodicInvestment: function (returnAmount, amountRequired, durationYears, durationMonths, frequency) {
 		let _futureAmountRequired = Helper.getNumber(amountRequired);
 		let _durYears = Helper.getNumber(durationYears);
@@ -34,6 +35,7 @@ export default {
 		let finalValue = Calculations.calculatePayment(rate, duration, 0, -_futureAmountRequired, DueDate.BegOfPeriod);
 		return Helper.getReturnValue(finalValue);
 	},
+	// Calculates the future value of a lump sum investment. The function takes the return rate, the required amount, and the duration in years and months as inputs. It returns the future value of the investment.
 	getFutureAmountLumpSumInvestment: function (returnAmount, amountRequired, durationYears, durationMonths) {
 		let _futureAmountRequired = Helper.getNumber(amountRequired);
 		let _durYears = Helper.getNumber(durationYears);
@@ -43,6 +45,7 @@ export default {
 		let finalValue = _futureAmountRequired / Math.pow((1 + calculatedReturnPercentage), calculatedTime);
 		return Helper.getReturnValue(finalValue);
 	},
+	// Calculates the future value of a periodic lump sum investment. The function takes the return rate, the required amount, the current investment amount, the duration in years and months, and the frequency of investment as inputs. It returns the future value of the investment.
 	getFutureAmountPeriodicLumpSumInvestment: function(returnAmount, amountRequired, amountToday, durationYears, durationMonths, frequency) {
 		let _futureAmountRequired = Helper.getNumber(amountRequired);
 		let _amountToday = Helper.getNumber(amountToday);
@@ -73,6 +76,7 @@ export default {
 		let finalValue = Calculations.calculatePayment(Math.pow((1.0 + (returnAmount / 100.0)), (1.0 / _frequency)) - 1, _duration, _amountToday, -_futureAmountRequired, DueDate.BegOfPeriod);
 		return Helper.getReturnValue(finalValue);
 	},
+	// Calculates the future value of a required lump sum investment, assuming a leverage loan. The function takes the required amount, the duration in years, and the annual compound return rate as inputs. It returns the future value of the investment.
 	getFutureAmountLeveragedRequiredLumpSumLeveraged: function(requiredAmount, durationYears, annualCompoundReturn) {
 		let _amountRequired = Helper.getNumber(requiredAmount);
 		let _durYears = Helper.getNumber(durationYears);
@@ -83,6 +87,7 @@ export default {
 		}
 		return Helper.getReturnValue(finalValue);
 	},
+	// Calculates the future value of an investment with leverage, given the required amount and the duration in years, and the annual compound return rate. The function returns the future value of the investment.
 	getFutureAmountLeveragedValueAmount: function(requiredAmount, durationYears, annualCompoundReturn) {
 		let _amountRequired = Helper.getNumber(requiredAmount);
 		let _durYears = Helper.getNumber(durationYears);
@@ -94,6 +99,7 @@ export default {
 		}
 		return Helper.getReturnValue(finalValue);
 	},
+	// Calculates the balance after loan repayment for an investment with leverage. The function takes the required amount, the duration in years, and the annual compound return rate as inputs. It returns the balance after loan repayment.
 	getFutureAmountLeveragedValueBalanceAfterLoan: function(requiredAmount, durationYears, annualCompoundReturn) {
 		let _amountRequired = Helper.getNumber(requiredAmount);
 		let _durYears = Helper.getNumber(durationYears);
