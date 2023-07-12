@@ -1,6 +1,11 @@
 # ofc-serverless-functions
 
-The Open Financial Calculator is an application that provides basic financial calculations to assist users with financial planning. The application utilizes serverless functions on Netlify, and the provided functions are used to calculate rates of return for various financial scenarios, such as annual compound return, total percentage gain, and lump sum average annual gain. In addition to the rate of return functionality, the Open Financial Calculator application also provides several other financial calculations to assist users with their financial planning. Some of these additional functions include:
+The Open Financial Calculator is an application that provides basic financial calculations to assist users with financial planning. The application utilizes serverless functions on Netlify. 
+
+The base url to access these serverless functions can be returned by the following end-point:
+`https://ofc-serverless-functions.netlify.app`
+
+The provided functions are used to calculate rates of return for various financial scenarios, such as annual compound return, total percentage gain, and lump sum average annual gain. In addition to the rate of return functionality, the Open Financial Calculator application also provides several other financial calculations to assist users with their financial planning. Some of these additional functions include:
 
 ## Future Value
 
