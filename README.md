@@ -9,7 +9,38 @@ The provided functions are used to calculate rates of return for various financi
 
 ## Future Value
 
-Calculates the future value of an investment based on a specified interest rate and compounding period, as well as the initial investment amount and the length of the investment.
+### Description
+The `/api/fv` endpoint calculates the future value of an investment based on a specified interest rate and compounding period, as well as the initial investment amount and the length of the investment. It provides three modes of operation: `periodic-annual-compound-return`, `lumpsum-annual-compound-return`, and `periodic-lumpsum-annual-compound-return`. The mode is specified as a query parameter in the request.
+
+### Parameters
+The following parameters can be passed as query parameters in the API request:
+
+- `mode` (required): Specifies the mode of operation. It can have one of three values:
+    - `periodic-annual-compound-return`: Calculates the future value based on a periodic investment with annual compounding.
+    - `lumpsum-annual-compound-return`: Calculates the future value based on a lump sum investment with annual compounding.
+    - `periodic-lumpsum-annual-compound-return`: Calculates the future value based on a combination of periodic and lump sum investments with annual compounding.
+- `ia` (required for `periodic-annual-compound-return` and `periodic-lumpsum-annual-compound-return modes`): The periodic investment amount.
+- `li` (`required for lumpsum-annual-compound-return` and `periodic-lumpsum-annual-compound-return modes`): The lump sum investment amount.
+- `ifr` (`required for periodic-annual-compound-return` and `periodic-lumpsum-annual-compound-return modes`): The investment freuqncy (i.e. annually, semi-annually, monthly, quarterly)
+- `y` (required): The number of years for which the investment is made.
+- `p` (required): The number of compounding periods per year.
+
+### Examples and Additional Notes
+The following are examples of the future value functionality.
+
+Future Value with Periodic Investment (Annual Compounding)
+`GET /api/fv?mode=periodic-annual-compound-return&ia=1000&ifr=monthly&y=5&p=1`
+
+Future Value with Lump Sum Investment (Annual Compounding)
+`GET /api/fv?mode=lumpsum-annual-compound-return&li=5000&y=10&p=1`
+
+Future Value with Periodic and Lump Sum Investments (Annual Compounding)
+`GET /api/fv?mode=periodic-lumpsum-annual-compound-return&ia=1000&li=5000&ifr=semi-annually&y=10&p=1`
+
+- Ensure that all required parameters are provided in the API request.
+- Handle any errors or missing parameters by checking the response status code and body.
+- Use the appropriate mode (`periodic-annual-compound-return`, `lumpsum-annual-compound-return`, or `periodic-lumpsum-annual-compound-return`) based on the desired calculation.
+- Validate the input parameters on the client side before making the API request to ensure data integrity and prevent unnecessary requests.
 
 ## Future Amount
 
@@ -22,7 +53,7 @@ Calculates the required amount of money that needs to be saved on a regular basi
 ## Capital Depletion
 
 ### Description
-Tracks the depletion of capital over time based on a specified investment rate of return, initial investment amount, and regular withdrawals. The /api/cd endpoint calculates and tracks the depletion of capital over time based on a specified investment rate of return, initial investment amount, and regular withdrawals. It provides two modes of operation: get-amount-per-withdrawl and get-total-payout. The mode is specified as a query parameter in the request.
+Tracks the depletion of capital over time based on a specified investment rate of return, initial investment amount, and regular withdrawals. The /api/cd endpoint calculates and tracks the depletion of capital over time based on a specified investment rate of return, initial investment amount, and regular withdrawals. It provides two modes of operation: `get-amount-per-withdrawl` and `get-total-payouti`. The mode is specified as a query parameter in the request.
 
 ### Parameters
 The following parameters can be passed as query parameters in the API request:
