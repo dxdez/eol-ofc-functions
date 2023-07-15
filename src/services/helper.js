@@ -9,7 +9,8 @@ export default {
 		}
 	},
 	getValueFromFrequency: function (selection) {
-		switch(selection) {
+		let selectionResult = selection.toUpperCase();	
+		switch(selectionResult) {
 			case Tags.frequencyAnnual:
 				return 12; // 12 months in a year
 			case Tags.frequencyQuarterly:
@@ -21,7 +22,8 @@ export default {
 		}
 	},
 	getValueFromFrequencyAlt: function (selection) {
-		switch(selection) {
+		let selectionResult = selection.toUpperCase();	
+		switch(selectionResult) {
 			case Tags.frequencyAnnual:
 				return 1;
 			case Tags.frequencySemiAnnual:
