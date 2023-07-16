@@ -8,7 +8,7 @@ export default {
 		let _futureAmountRequired = Helper.getNumber(amountRequired);
 		let _durYears = Helper.getNumber(durationYears);
 		let _durMonths = Helper.getNumber(durationMonths);
-		let _frequencySelection = frequency;
+		let _frequencySelection = frequencytoUpperCase();
 		let _frequency = 0;
 		let _duration = 0;
 		switch (_frequencySelection)
@@ -51,7 +51,7 @@ export default {
 		let _amountToday = Helper.getNumber(amountToday);
 		let _durYears = Helper.getNumber(durationYears);
 		let _durMonths = Helper.getNumber(durationMonths);
-		let _frequencySelection = frequency;
+		let _frequencySelection = frequencytoUpperCase();
 		let _frequency = 0;
 		let _duration = 0;
 		switch (_frequencySelection)
