@@ -44,7 +44,47 @@ Future Value with Periodic and Lump Sum Investments (Annual Compounding)
 
 ## Future Amount
 
-Calculates the future amount of a regular investment based on a specified interest rate and compounding period, as well as the initial investment amount, the length of the investment, and the regular investment amount.
+### Description
+The `/api/fa` endpoint calculates the future amount of a regular investment based on a specified interest rate and compounding period, as well as the initial investment amount, the length of the investment, and the regular investment amount. It provides six modes of operation, each serving different calculations related to future amounts based on different parameters. The mode is specified as a query parameter in the request.
+
+### Parameters
+The following parameters can be passed as query parameters in the API request:
+
+- `mode` (required): Specifies the mode of operation. It can have one of six values:
+    - `periodic-investment`: Calculates the future amount based on a periodic investment.
+    - `lumpsum-investment`: Calculates the future amount based on a lump sum investment.
+    - `periodic-lumpsum-investment`: Calculates the future amount based on a combination of periodic and lump sum investments.
+    - `leveraged-required-lumpsum`: Calculates the future amount required to cover a leveraged investment with a lump sum.
+    - `leveraged-value-amount`: Calculates the future amount of a leveraged investment.
+    - `leveraged-value-balance-after-loan`: Calculates the future amount of a leveraged investment after deducting the loan amount.
+- `ra` (required for `periodic-investment`, `lumpsum-investment`, `periodic-lumpsum-investment`, `leveraged-required-lumpsum`, `leveraged-value-amount`, and `leveraged-value-balance-after-loan` modes): The return amount.
+- `ar` (required for `periodic-investment`, `lumpsum-investment`, and `periodic-lumpsum-investment modes`): The amount required at the end of the investment period.
+- `dy` (required for all modes): The number of years for which the investment is made.
+- `dm` (required for all modes): The number of compounding periods per year.
+- `fr` (required for `periodic-investment` and `periodic-lumpsum-investment` modes): The frequency of compounding, this can be annually, monthly or quarterly.
+- `at` (required for `periodic-lumpsum-investment` mode): The amount value for today.
+- `acr` (required for `leveraged-required-lumpsum`, `leveraged-value-amount`, and `leveraged-value-balance-after-loan` modes): The annual compounding rate as a decimal value.
+
+### Examples and Additional Notes
+The following are examples of the future amount function.
+
+Future Amount with Periodic Investment
+`GET /api/fa?mode=periodic-investment&ra=100&ar=1000&dy=5&dm=0&fr=annually`
+
+Future Amount with Lump Sum Investment
+`GET /api/fa?mode=lumpsum-investment&ra=15&ar=5&dy=10&dm=1`
+
+Future Amount with Periodic and Lump Sum Investments
+`GET /api/fa?mode=periodic-lumpsum-investment&ra=1&ar=5&at=5000&dy=10&dm=1&fr=monthly`
+
+Future Amount of Leveraged Investment
+`GET /api/fa?mode=leveraged-value-amount&ra=1000&dy=10&acr=0.08`
+
+Future Amount Required for Leveraged Investment (Lump Sum)
+`GET /api/fa?mode=leveraged-required-lumpsum&ra=1000&dy=5&acr=0.10`
+
+Future Amount of Leveraged Investment After Loan Deduction
+`GET /api/fa?mode=leveraged-value-balance-after-loan&ra=1000&dy=10&acr=0.08`
 
 ## Major Purchase
 
