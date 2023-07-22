@@ -3,10 +3,14 @@
 The Open Financial Calculator is an application that provides basic financial calculations to assist users with financial planning. The application utilizes serverless functions on Netlify. 
 
 The base url to access these serverless functions can be returned by the following end-point:
+
 `https://ofc-serverless-functions.netlify.app`
 
-The provided functions are used to calculate rates of return for various financial scenarios, such as annual compound return, total percentage gain, and lump sum average annual gain. In addition to the rate of return functionality, the Open Financial Calculator application also provides several other financial calculations to assist users with their financial planning. Some of these additional functions include:
+The provided functions are used to calculate rates of return for various financial scenarios, such as annual compound return, total percentage gain, and lump sum average annual gain. 
 
+In addition to the rate of return functionality, the Open Financial Calculator application also provides several other financial calculations to assist users with their financial planning. Some of these additional functions include:
+
+&nbsp;
 ## Future Value
 
 ### Description
@@ -25,23 +29,19 @@ The following parameters can be passed as query parameters in the API request:
 - `y` (required): The number of years for which the investment is made.
 - `p` (required): The number of compounding periods per year.
 
-### Examples and Additional Notes
+### Examples
 The following are examples of the future value functionality.
 
-Future Value with Periodic Investment (Annual Compounding)
+Future Value with Periodic Investment (Annual Compounding)<br/>
 `GET /api/fv?mode=periodic-annual-compound-return&ia=1000&ifr=monthly&y=5&p=1`
 
-Future Value with Lump Sum Investment (Annual Compounding)
+Future Value with Lump Sum Investment (Annual Compounding)<br/>
 `GET /api/fv?mode=lumpsum-annual-compound-return&li=5000&y=10&p=1`
 
-Future Value with Periodic and Lump Sum Investments (Annual Compounding)
+Future Value with Periodic and Lump Sum Investments (Annual Compounding)<br/>
 `GET /api/fv?mode=periodic-lumpsum-annual-compound-return&ia=1000&li=5000&ifr=semi-annually&y=10&p=1`
 
-- Ensure that all required parameters are provided in the API request.
-- Handle any errors or missing parameters by checking the response status code and body.
-- Use the appropriate mode (`periodic-annual-compound-return`, `lumpsum-annual-compound-return`, or `periodic-lumpsum-annual-compound-return`) based on the desired calculation.
-- Validate the input parameters on the client side before making the API request to ensure data integrity and prevent unnecessary requests.
-
+&nbsp;
 ## Future Amount
 
 ### Description
@@ -65,31 +65,33 @@ The following parameters can be passed as query parameters in the API request:
 - `at` (required for `periodic-lumpsum-investment` mode): The amount value for today.
 - `acr` (required for `leveraged-required-lumpsum`, `leveraged-value-amount`, and `leveraged-value-balance-after-loan` modes): The annual compounding rate as a decimal value.
 
-### Examples and Additional Notes
+### Examples
 The following are examples of the future amount function.
 
-Future Amount with Periodic Investment
+Future Amount with Periodic Investment<br/>
 `GET /api/fa?mode=periodic-investment&ra=100&ar=1000&dy=5&dm=0&fr=annually`
 
-Future Amount with Lump Sum Investment
+Future Amount with Lump Sum Investment<br/>
 `GET /api/fa?mode=lumpsum-investment&ra=15&ar=5&dy=10&dm=1`
 
-Future Amount with Periodic and Lump Sum Investments
+Future Amount with Periodic and Lump Sum Investments<br/>
 `GET /api/fa?mode=periodic-lumpsum-investment&ra=1&ar=5&at=5000&dy=10&dm=1&fr=monthly`
 
-Future Amount of Leveraged Investment
+Future Amount of Leveraged Investment<br/>
 `GET /api/fa?mode=leveraged-value-amount&ra=1000&dy=10&acr=0.08`
 
-Future Amount Required for Leveraged Investment (Lump Sum)
+Future Amount Required for Leveraged Investment (Lump Sum)<br/>
 `GET /api/fa?mode=leveraged-required-lumpsum&ra=1000&dy=5&acr=0.10`
 
-Future Amount of Leveraged Investment After Loan Deduction
+Future Amount of Leveraged Investment After Loan Deduction<br/>
 `GET /api/fa?mode=leveraged-value-balance-after-loan&ra=1000&dy=10&acr=0.08`
 
+&nbsp;
 ## Major Purchase
 
 Calculates the required amount of money that needs to be saved on a regular basis in order to reach a specified financial goal, such as a down payment on a home or a college education.
 
+&nbsp;
 ## Capital Depletion
 
 ### Description
@@ -108,22 +110,16 @@ The following parameters can be passed as query parameters in the API request:
 - `rp` (required for `get-amount-per-withdrawl` mode): The annual rate of return on the investment as a decimal value (e.g., 0.05 for 5% rate of return).
 - `apw` (required for `get-total-payout` mode): The amount per withdrawal.
 
-### Examples and Additional Notes
+### Examples
 The following are examples of the capital depletion function.
 
-Get Amount Per Withdrawl 
+Get Amount Per Withdrawl<br/>
 `GET /api/cd?mode=get-amount-per-withdrawl&pv=100000&y=10&w=12&f=0&rp=0.05`
 
-Get Total Payout
+Get Total Payout<br/>
 `GET /api/cd?mode=get-total-payout&apw=1000&y=5&w=4`
 
-- Use appropriate decimal values for percentage-based parameters (e.g., `rp` should be `0.05` for a 5% rate of return).
-- Handle any errors or missing parameters by checking the response status code and body.
-- Use the appropriate mode (`get-amount-per-withdrawl` or `get-total-payout`) based on the desired calculation.
-- Validate the input parameters on the client side before making the API request to ensure data integrity and prevent unnecessary requests.
-- Store the initial investment amount (`pv`) securely and handle it with caution, as it can affect the depletion calculation.
-- Consider caching the results if the same calculations are performed frequently to improve performance and reduce unnecessary computations.
-
+&nbsp;
 ## Retirement Income
 
 Calculates the amount of money that needs to be saved on a regular basis in order to achieve a desired level of income in retirement, based on a specified interest rate and the length of the retirement period.
