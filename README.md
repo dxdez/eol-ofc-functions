@@ -10,6 +10,7 @@ The provided functions are used to calculate rates of return for various financi
 
 In addition to the rate of return functionality, the Open Financial Calculator application also provides several other financial calculations to assist users with their financial planning. Some of these additional functions include:
 
+
 &nbsp;
 ## Future Value
 
@@ -40,6 +41,7 @@ Future Value with Lump Sum Investment (Annual Compounding)<br/>
 
 Future Value with Periodic and Lump Sum Investments (Annual Compounding)<br/>
 `GET /api/fv?mode=periodic-lumpsum-annual-compound-return&ia=1000&li=5000&ifr=semi-annually&y=10&p=1`
+
 
 &nbsp;
 ## Future Amount
@@ -86,10 +88,45 @@ Future Amount Required for Leveraged Investment (Lump Sum)<br/>
 Future Amount of Leveraged Investment After Loan Deduction<br/>
 `GET /api/fa?mode=leveraged-value-balance-after-loan&ra=1000&dy=10&acr=0.08`
 
+
 &nbsp;
 ## Major Purchase
 
-Calculates the required amount of money that needs to be saved on a regular basis in order to reach a specified financial goal, such as a down payment on a home or a college education.
+### Description
+Calculates the required amount of money that needs to be saved on a regular basis in order to reach a specified financial goal, such as a down payment on a home or a college education. The `/api/mp` endpoint calculates the required amount of money that needs to be saved on a regular basis in order to reach a specified financial goal, such as a down payment on a home or a college education. It provides four modes of operation, each serving different calculations related to major purchase savings based on different parameters. The mode is specified as a query parameter in the request.
+
+### Parameters
+The following parameters can be passed as query parameters in the API request:
+
+`mode` (required): Specifies the mode of operation. It can have one of four values:
+    `get-capital-required`: Calculates the required capital amount to reach the financial goal.
+    `get-lumpsum-today`: Calculates the lump sum amount required to achieve the financial goal when invested today.
+    `get-lumpsum-required`: Calculates the lump sum amount required to reach the financial goal with existing capital.
+    `get-monthly-investment`: Calculates the required monthly investment amount to reach the financial goal.
+`cr` (required for `get-capital-required` mode): The financial goal or capital required for the major purchase.
+`ny` (required for all modes): The number of years for which the investment is made.
+`ai` (required for `get-capital-required mode`): The annual inflation rate as a decimal value.
+`acr` (required for `get-lumpsum-today` and `get-monthly-investment modes`): The annual compound return rate as a decimal value.
+`crc` (required for `get-lumpsum-today` and `get-monthly-investment modes`): The calculated return capital or the amount already accumulated towards the goal.
+`ls` (required for `get-lumpsum-required mode`): The lump sum amount available or currently saved.
+`ec` (required for `get-lumpsum-required mode`): The existing capital or investments.
+`ca` (required for `get-monthly-investment mode`): The capital accumulated or investments already made.
+
+### Examples
+The following are examples of the major purchase function.
+
+Capital Required for Major Purchase<br/>
+`GET /api/mp?mode=get-capital-required&cr=50000&ny=5&ai=0.03`
+
+Lump Sum Amount Required Today for Major Purchase<br/>
+`GET /api/mp?mode=get-lumpsum-today&acr=0.05&ny=10&crc=0`
+
+Lump Sum Amount Required with Existing Capital for Major Purchase<br/>
+`GET /api/mp?mode=get-lumpsum-required&ls=10000&ec=5000`
+
+Monthly Investment Required for Major Purchase<br/>
+`GET /api/mp?mode=get-monthly-investment&acr=0.06&ny=5&ca=10000&crc=5000`
+
 
 &nbsp;
 ## Capital Depletion
@@ -118,6 +155,7 @@ Get Amount Per Withdrawl<br/>
 
 Get Total Payout<br/>
 `GET /api/cd?mode=get-total-payout&apw=1000&y=5&w=4`
+
 
 &nbsp;
 ## Retirement Income
