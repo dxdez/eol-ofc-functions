@@ -98,19 +98,19 @@ Calculates the required amount of money that needs to be saved on a regular basi
 ### Parameters
 The following parameters can be passed as query parameters in the API request:
 
-`mode` (required): Specifies the mode of operation. It can have one of four values:
-    `get-capital-required`: Calculates the required capital amount to reach the financial goal.
-    `get-lumpsum-today`: Calculates the lump sum amount required to achieve the financial goal when invested today.
-    `get-lumpsum-required`: Calculates the lump sum amount required to reach the financial goal with existing capital.
-    `get-monthly-investment`: Calculates the required monthly investment amount to reach the financial goal.
-`cr` (required for `get-capital-required` mode): The financial goal or capital required for the major purchase.
-`ny` (required for all modes): The number of years for which the investment is made.
-`ai` (required for `get-capital-required mode`): The annual inflation rate as a decimal value.
-`acr` (required for `get-lumpsum-today` and `get-monthly-investment modes`): The annual compound return rate as a decimal value.
-`crc` (required for `get-lumpsum-today` and `get-monthly-investment modes`): The calculated return capital or the amount already accumulated towards the goal.
-`ls` (required for `get-lumpsum-required mode`): The lump sum amount available or currently saved.
-`ec` (required for `get-lumpsum-required mode`): The existing capital or investments.
-`ca` (required for `get-monthly-investment mode`): The capital accumulated or investments already made.
+- `mode` (required): Specifies the mode of operation. It can have one of four values:
+    - `get-capital-required`: Calculates the required capital amount to reach the financial goal.
+    - `get-lumpsum-today`: Calculates the lump sum amount required to achieve the financial goal when invested today.
+    - `get-lumpsum-required`: Calculates the lump sum amount required to reach the financial goal with existing capital.
+    - `get-monthly-investment`: Calculates the required monthly investment amount to reach the financial goal.
+- `cr` (required for `get-capital-required` mode): The financial goal or capital required for the major purchase.
+- `ny` (required for all modes): The number of years for which the investment is made.
+- `ai` (required for `get-capital-required mode`): The annual inflation rate as a decimal value.
+- `acr` (required for `get-lumpsum-today` and `get-monthly-investment modes`): The annual compound return rate as a decimal value.
+- `crc` (required for `get-lumpsum-today` and `get-monthly-investment modes`): The calculated return capital or the amount already accumulated towards the goal.
+- `ls` (required for `get-lumpsum-required mode`): The lump sum amount available or currently saved.
+- `ec` (required for `get-lumpsum-required mode`): The existing capital or investments.
+- `ca` (required for `get-monthly-investment mode`): The capital accumulated or investments already made.
 
 ### Examples
 The following are examples of the major purchase function.
