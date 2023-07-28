@@ -6,10 +6,47 @@ The base url to access these serverless functions can be returned by the followi
 
 `https://ofc-serverless-functions.netlify.app`
 
-The provided functions are used to calculate rates of return for various financial scenarios, such as annual compound return, total percentage gain, and lump sum average annual gain. 
+The Open Financial Calculator application provides many financial calculations to assist users with their financial planning. These functions include:
 
-In addition to the rate of return functionality, the Open Financial Calculator application also provides several other financial calculations to assist users with their financial planning. Some of these additional functions include:
+&nbsp;
+## Rate of Return
 
+### Description
+The `/api/ror` endpoint provides rate of return functionality for various financial calculations. It calculates the rate of return and other related metrics for investments or financial transactions. The API offers five modes of operation, each serving different calculations related to rate of return based on different parameters. The mode is specified as a query parameter in the request.
+
+### Parameters
+The following parameters can be passed as query parameters in the API request:
+
+`mode` (required): Specifies the mode of operation. It can have one of five values:
+    `annual-compound-return`: Calculates the annual compound return based on the present value, amount value, duration, and frequency.
+    `total-percentage-gain`: Calculates the total percentage gain based on the present value, amount value, duration, and frequency.
+    `lumpsum-annual-compound-return`: Calculates the annual compound return based on a lump sum investment.
+    `lumpsum-total-percentage-gain`: Calculates the total percentage gain based on a lump sum investment.
+    `lumpsum-average-annual-gain`: Calculates the average annual gain based on a lump sum investment.
+`li` (required for `lumpsum-annual-compound-return`, `lumpsum-total-percentage-gain`, and `lumpsum-average-annual-gain modes`): The lump sum investment amount.
+`av` (required for `annual-compound-return` and `total-percentage-gain modes`): The amount value or final amount received.
+`pv` (required for `annual-compound-return`, `total-percentage-gain`, and `lumpsum-annual-compound-return modes`): The present value or initial investment amount.
+`dy` (required for all modes): The number of years for which the investment is made.
+`dm` (optional): The number of months for which the investment is made (used in conjunction with `dy` for more precise calculations).
+`fr` (required for `annual-compound-return mode`): The frequency of compounding, such as 'annual', 'monthly', etc.
+
+### Examples
+The following are examples of the rate of return functionality.
+
+Annual Compound Return<br/>
+`GET /api/ror?mode=annual-compound-return&av=10000&pv=8000&dy=5&fr=annual`
+
+Total Percentage Gain<br/>
+`GET /api/ror?mode=total-percentage-gain&av=10000&pv=8000&dy=5&fr=annual`
+
+Annual Compound Return with Lump Sum Investment<br/>
+`GET /api/ror?mode=lumpsum-annual-compound-return&li=5000&pv=3000&dy=5`
+
+Total Percentage Gain with Lump Sum Investment<br/>
+`GET /api/ror?mode=lumpsum-total-percentage-gain&li=5000&pv=3000`
+
+Average Annual Gain with Lump Sum Investment<br/>
+`GET /api/ror?mode=lumpsum-average-annual-gain&li=5000&pv=3000&dy=5`
 
 &nbsp;
 ## Future Value
@@ -156,10 +193,3 @@ Get Amount Per Withdrawl<br/>
 Get Total Payout<br/>
 `GET /api/cd?mode=get-total-payout&apw=1000&y=5&w=4`
 
-
-&nbsp;
-## Retirement Income
-
-Calculates the amount of money that needs to be saved on a regular basis in order to achieve a desired level of income in retirement, based on a specified interest rate and the length of the retirement period.
-
-All of these calculations can be very useful in helping users make informed financial decisions and plan for their future financial goals.
