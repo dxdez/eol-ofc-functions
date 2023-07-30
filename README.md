@@ -17,18 +17,18 @@ The `/api/ror` endpoint provides rate of return functionality for various financ
 ### Parameters
 The following parameters can be passed as query parameters in the API request:
 
-`mode` (required): Specifies the mode of operation. It can have one of five values:
-    `annual-compound-return`: Calculates the annual compound return based on the present value, amount value, duration, and frequency.
-    `total-percentage-gain`: Calculates the total percentage gain based on the present value, amount value, duration, and frequency.
-    `lumpsum-annual-compound-return`: Calculates the annual compound return based on a lump sum investment.
-    `lumpsum-total-percentage-gain`: Calculates the total percentage gain based on a lump sum investment.
-    `lumpsum-average-annual-gain`: Calculates the average annual gain based on a lump sum investment.
-`li` (required for `lumpsum-annual-compound-return`, `lumpsum-total-percentage-gain`, and `lumpsum-average-annual-gain modes`): The lump sum investment amount.
-`av` (required for `annual-compound-return` and `total-percentage-gain modes`): The amount value or final amount received.
-`pv` (required for `annual-compound-return`, `total-percentage-gain`, and `lumpsum-annual-compound-return modes`): The present value or initial investment amount.
-`dy` (required for all modes): The number of years for which the investment is made.
-`dm` (optional): The number of months for which the investment is made (used in conjunction with `dy` for more precise calculations).
-`fr` (required for `annual-compound-return mode`): The frequency of compounding, such as 'annual', 'monthly', etc.
+- `mode` (required): Specifies the mode of operation. It can have one of five values:
+    - `annual-compound-return`: Calculates the annual compound return based on the present value, amount value, duration, and frequency.
+    - `total-percentage-gain`: Calculates the total percentage gain based on the present value, amount value, duration, and frequency.
+    - `lumpsum-annual-compound-return`: Calculates the annual compound return based on a lump sum investment.
+    - `lumpsum-total-percentage-gain`: Calculates the total percentage gain based on a lump sum investment.
+    - `lumpsum-average-annual-gain`: Calculates the average annual gain based on a lump sum investment.
+- `li` (required for `lumpsum-annual-compound-return`, `lumpsum-total-percentage-gain`, and `lumpsum-average-annual-gain modes`): The lump sum investment amount.
+- `av` (required for `annual-compound-return` and `total-percentage-gain modes`): The amount value or final amount received.
+- `pv` (required for `annual-compound-return`, `total-percentage-gain`, and `lumpsum-annual-compound-return modes`): The present value or initial investment amount.
+- `dy` (required for all modes): The number of years for which the investment is made.
+- `dm` (optional): The number of months for which the investment is made (used in conjunction with `dy` for more precise calculations).
+- `fr` (required for `annual-compound-return mode`): The frequency of compounding, such as 'annual', 'monthly', etc.
 
 ### Examples
 The following are examples of the rate of return functionality.
