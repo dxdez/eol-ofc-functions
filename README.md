@@ -4,7 +4,9 @@ The Open Financial Calculator is an application that provides basic financial ca
 
 The base url to access these serverless functions can be returned by the following end-point:
 
-`https://ofc-serverless-functions.netlify.app`
+```
+https://ofc-serverless-functions.netlify.app
+```
 
 The Open Financial Calculator application provides many financial calculations to assist users with their financial planning. These functions include:
 
@@ -34,19 +36,29 @@ The following parameters can be passed as query parameters in the API request:
 The following are examples of the rate of return functionality.
 
 Annual Compound Return<br/>
-`GET /api/ror?mode=annual-compound-return&av=10000&pv=8000&dy=5&fr=annual`
+```
+/api/ror?mode=annual-compound-return&av=10000&pv=8000&dy=5&fr=annual
+```
 
 Total Percentage Gain<br/>
-`GET /api/ror?mode=total-percentage-gain&av=10000&pv=8000&dy=5&fr=annual`
+```
+/api/ror?mode=total-percentage-gain&av=10000&pv=8000&dy=5&fr=annual
+```
 
 Annual Compound Return with Lump Sum Investment<br/>
-`GET /api/ror?mode=lumpsum-annual-compound-return&li=5000&pv=3000&dy=5`
+```
+/api/ror?mode=lumpsum-annual-compound-return&li=5000&pv=3000&dy=5
+```
 
 Total Percentage Gain with Lump Sum Investment<br/>
-`GET /api/ror?mode=lumpsum-total-percentage-gain&li=5000&pv=3000`
+```
+/api/ror?mode=lumpsum-total-percentage-gain&li=5000&pv=3000
+```
 
 Average Annual Gain with Lump Sum Investment<br/>
-`GET /api/ror?mode=lumpsum-average-annual-gain&li=5000&pv=3000&dy=5`
+```
+/api/ror?mode=lumpsum-average-annual-gain&li=5000&pv=3000&dy=5
+```
 
 &nbsp;
 ## Future Value
@@ -71,13 +83,19 @@ The following parameters can be passed as query parameters in the API request:
 The following are examples of the future value functionality.
 
 Future Value with Periodic Investment (Annual Compounding)<br/>
-`GET /api/fv?mode=periodic-annual-compound-return&ia=1000&ifr=monthly&y=5&p=1`
+```
+/api/fv?mode=periodic-annual-compound-return&ia=1000&ifr=monthly&y=5&p=1
+```
 
 Future Value with Lump Sum Investment (Annual Compounding)<br/>
-`GET /api/fv?mode=lumpsum-annual-compound-return&li=5000&y=10&p=1`
+```
+/api/fv?mode=lumpsum-annual-compound-return&li=5000&y=10&p=1
+```
 
 Future Value with Periodic and Lump Sum Investments (Annual Compounding)<br/>
-`GET /api/fv?mode=periodic-lumpsum-annual-compound-return&ia=1000&li=5000&ifr=semi-annually&y=10&p=1`
+```
+/api/fv?mode=periodic-lumpsum-annual-compound-return&ia=1000&li=5000&ifr=semi-annually&y=10&p=1
+```
 
 
 &nbsp;
@@ -108,22 +126,34 @@ The following parameters can be passed as query parameters in the API request:
 The following are examples of the future amount function.
 
 Future Amount with Periodic Investment<br/>
-`GET /api/fa?mode=periodic-investment&ra=100&ar=1000&dy=5&dm=0&fr=annually`
+```
+/api/fa?mode=periodic-investment&ra=100&ar=1000&dy=5&dm=0&fr=annually
+```
 
 Future Amount with Lump Sum Investment<br/>
-`GET /api/fa?mode=lumpsum-investment&ra=15&ar=5&dy=10&dm=1`
+```
+/api/fa?mode=lumpsum-investment&ra=15&ar=5&dy=10&dm=1
+```
 
 Future Amount with Periodic and Lump Sum Investments<br/>
-`GET /api/fa?mode=periodic-lumpsum-investment&ra=1&ar=5&at=5000&dy=10&dm=1&fr=monthly`
+```
+/api/fa?mode=periodic-lumpsum-investment&ra=1&ar=5&at=5000&dy=10&dm=1&fr=monthly
+```
 
 Future Amount of Leveraged Investment<br/>
-`GET /api/fa?mode=leveraged-value-amount&ra=1000&dy=10&acr=0.08`
+```
+/api/fa?mode=leveraged-value-amount&ra=1000&dy=10&acr=0.08
+```
 
 Future Amount Required for Leveraged Investment (Lump Sum)<br/>
-`GET /api/fa?mode=leveraged-required-lumpsum&ra=1000&dy=5&acr=0.10`
+```
+/api/fa?mode=leveraged-required-lumpsum&ra=1000&dy=5&acr=0.10
+```
 
 Future Amount of Leveraged Investment After Loan Deduction<br/>
-`GET /api/fa?mode=leveraged-value-balance-after-loan&ra=1000&dy=10&acr=0.08`
+```
+/api/fa?mode=leveraged-value-balance-after-loan&ra=1000&dy=10&acr=0.08
+```
 
 
 &nbsp;
@@ -153,16 +183,24 @@ The following parameters can be passed as query parameters in the API request:
 The following are examples of the major purchase function.
 
 Capital Required for Major Purchase<br/>
-`GET /api/mp?mode=get-capital-required&cr=50000&ny=5&ai=0.03`
+```
+/api/mp?mode=get-capital-required&cr=50000&ny=5&ai=0.03
+```
 
 Lump Sum Amount Required Today for Major Purchase<br/>
-`GET /api/mp?mode=get-lumpsum-today&acr=0.05&ny=10&crc=0`
+```
+/api/mp?mode=get-lumpsum-today&acr=0.05&ny=10&crc=0
+```
 
 Lump Sum Amount Required with Existing Capital for Major Purchase<br/>
-`GET /api/mp?mode=get-lumpsum-required&ls=10000&ec=5000`
+```
+/api/mp?mode=get-lumpsum-required&ls=10000&ec=5000
+```
 
 Monthly Investment Required for Major Purchase<br/>
-`GET /api/mp?mode=get-monthly-investment&acr=0.06&ny=5&ca=10000&crc=5000`
+```
+/api/mp?mode=get-monthly-investment&acr=0.06&ny=5&ca=10000&crc=5000
+```
 
 
 &nbsp;
@@ -188,8 +226,12 @@ The following parameters can be passed as query parameters in the API request:
 The following are examples of the capital depletion function.
 
 Get Amount Per Withdrawl<br/>
-`GET /api/cd?mode=get-amount-per-withdrawl&pv=100000&y=10&w=12&f=0&rp=0.05`
+```
+/api/cd?mode=get-amount-per-withdrawl&pv=100000&y=10&w=12&f=0&rp=0.05
+```
 
 Get Total Payout<br/>
-`GET /api/cd?mode=get-total-payout&apw=1000&y=5&w=4`
+```
+/api/cd?mode=get-total-payout&apw=1000&y=5&w=4
+```
 
