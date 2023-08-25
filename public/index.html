@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>OFC</title>
-	</head>
-	<body>
-		<div id="response-output"></div>
-		<script>
-			const responseText = document.getElementById('response-output')
-			window.addEventListener("load", async (event) => {
-				console.log("page is fully loaded");
-				const response = await fetch('/.netlify/functions/check').then(
-					response => response.json()
-				)
-				responseText.innerText = JSON.stringify(response)
-			});
-		</script>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OFC</title>
+  </head>
+  <body>
+    <div id="response-output"></div>
+    <script>
+      const responseText = document.getElementById('response-output')
+      window.addEventListener("load", async (event) => {
+      	console.log("page is fully loaded");
+      	const response = await fetch('/.netlify/functions/check').then(
+      		response => response.json()
+      	)
+      	responseText.innerText = JSON.stringify(response)
+      });
+    </script>
+  </body>
 </html>
-
