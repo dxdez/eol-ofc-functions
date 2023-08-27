@@ -37,12 +37,12 @@ The following are examples of the rate of return functionality.
 
 Annual Compound Return<br/>
 ```
-/api/ror?mode=annual-compound-return&av=10000&pv=8000&dy=5&fr=annual
+/api/ror?mode=annual-compound-return&av=10000&pv=8000&dy=5&fr=annually
 ```
 
 Total Percentage Gain<br/>
 ```
-/api/ror?mode=total-percentage-gain&av=10000&pv=8000&dy=5&fr=annual
+/api/ror?mode=total-percentage-gain&av=10000&pv=8000&dy=5&fr=annually
 ```
 
 Annual Compound Return with Lump Sum Investment<br/>
