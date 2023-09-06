@@ -1,4 +1,4 @@
-# ofc-serverless-functions
+# Open Financial Calculator - Serverless Functions
 
 The Open Financial Calculator is an application that provides basic financial calculations to assist users with financial planning. The application utilizes serverless functions on Netlify. 
 
