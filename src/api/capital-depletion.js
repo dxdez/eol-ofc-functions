@@ -1,9 +1,6 @@
 import Calculations from '../services/calculator.js';
 import Helper from '../services/helper.js';
-import {
-  Tags,
-  DueDate
-} from '../config/globals.js';
+import DueDate from '../config/globals.js';
 
 export default {
   getAmountPerWithdrawl: function (presentValue, years, withdrawls, frequency, returnPercentage) {
