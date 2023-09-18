@@ -235,3 +235,46 @@ Get Total Payout<br/>
 /api/cd?mode=get-total-payout&apw=1000&y=5&w=4
 ```
 
+
+
+&nbsp;
+## Desired Income
+
+### Description
+The `/api/di` endpoint provides functionality to calculate desired income and withdrawal data based on user-specific financial parameters. It helps users plan for their financial future by estimating the income they need to achieve their financial goals and providing withdrawal data based on their inputs.
+
+### Parameters
+The following parameters can be passed as query parameters in the API request:
+
+#### For total-income-required Mode:
+
+- `mode` (required): Specifies the mode of operation. It should be set to "total-income-required."
+- `pid` (required): Periodic income desired by the user, representing the income amount they want to receive at regular intervals.
+- `air` (required): The annual inflation rate as a decimal value, indicating the expected annual increase in living expenses.
+- `wf` (required): Withdrawal frequency, which determines how often the user wants to receive income (e.g., "monthly," "annually").
+- `dy` (required): Duration in years, indicating the number of years for which the user intends to plan their income.
+- `crc` (required): Capital return compounding rate, expressed as a decimal, representing the expected annual return on invested capital.
+- `cf` (required): Compounding frequency for capital return, specifying how often the capital return is compounded (e.g., "annually," "quarterly").
+
+#### For get-withdrawl-data Mode:
+
+- `mode` (required): Specifies the mode of operation. It should be set to "get-withdrawl-data."
+- `pid` (required): Periodic income desired by the user, representing the income amount they want to receive at regular intervals.
+- `air` (required): The annual inflation rate as a decimal value, indicating the expected annual increase in living expenses.
+- `wf` (required): Withdrawal frequency, which determines how often the user wants to receive income (e.g., "monthly," "annually").
+- `dy` (required): Duration in years, indicating the number of years for which the user intends to plan their income.
+- `crc` (required): Capital return compounding rate, expressed as a decimal, representing the expected annual return on invested capital.
+- `cf` (required): Compounding frequency for capital return, specifying how often the capital return is compounded (e.g., "annually," "quarterly").
+
+### Examples
+The following are examples of the desired income function.
+
+Total Income Required<br/>
+```
+/api/di?mode=total-income-required&pid=50000&air=0.03&wf=monthly&dy=20&crc=0.05&cf=annually
+```
+
+Get Withdrawl Data<br/>
+```
+/api/di?mode=get-withdrawl-data&pid=50000&air=0.03&wf=monthly&dy=20&crc=0.05&cf=annually
+```
