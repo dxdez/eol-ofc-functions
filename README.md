@@ -1,14 +1,8 @@
-# Open Financial Calculator - Serverless Functions
+# Open Financial Calculator - API Functions
 
-The Open Financial Calculator is an application that provides basic financial calculations to assist users with financial planning. The application utilizes serverless functions on Netlify. 
+> **Note: This project is no longer actively maintained, and the host URL endpoint is no longer active. It has been archived for historical purposes. Feel free to explore the code, but please note that it is no longer in use or supported.**
 
-The base url to access these serverless functions can be returned by the following end-point:
-
-```
-https://ofc-serverless-functions.netlify.app
-```
-
-The Open Financial Calculator application provides many financial calculations to assist users with their financial planning. These functions include:
+The Open Financial Calculator is an application that provides basic financial calculations to assist users with financial planning. The application utilizes functions on Netlify. The Open Financial Calculator application provides many financial calculations to assist users with their financial planning. These functions include:
 
 &nbsp;
 ## Rate of Return
