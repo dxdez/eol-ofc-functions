@@ -4,7 +4,6 @@
 
 The Open Financial Calculator is an application that provides basic financial calculations to assist users with financial planning. The application utilizes functions on Netlify. The Open Financial Calculator application provides many financial calculations to assist users with their financial planning. These functions include:
 
-&nbsp;
 ## Rate of Return
 
 ### Description
@@ -54,7 +53,6 @@ Average Annual Gain with Lump Sum Investment<br/>
 /api/ror?mode=lumpsum-average-annual-gain&li=5000&pv=3000&dy=5
 ```
 
-&nbsp;
 ## Future Value
 
 ### Description
@@ -92,7 +90,6 @@ Future Value with Periodic and Lump Sum Investments (Annual Compounding)<br/>
 ```
 
 
-&nbsp;
 ## Future Amount
 
 ### Description
@@ -150,7 +147,6 @@ Future Amount of Leveraged Investment After Loan Deduction<br/>
 ```
 
 
-&nbsp;
 ## Major Purchase
 
 ### Description
@@ -197,7 +193,6 @@ Monthly Investment Required for Major Purchase<br/>
 ```
 
 
-&nbsp;
 ## Capital Depletion
 
 ### Description
@@ -231,7 +226,6 @@ Get Total Payout<br/>
 
 
 
-&nbsp;
 ## Desired Income
 
 ### Description
